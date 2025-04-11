@@ -26,6 +26,16 @@
 //           - pokemon (empty array)
 
 let player = {
+  name: "Pupusaru",
+  age: 31,
+  region: "Alola",
+  bag: {
+    pokeballs:[],
+    medicine:[],
+    keyitems:[],
+    pokemon:[]
+  }
+
 }
 
 // --------------------------------------------------------------------
@@ -59,8 +69,48 @@ let player = {
 //
 // Once you're done, you’ll be able to choose one as your starter in Mission 03!
 
-let starter = {};
-let rival = {};
+let starter = {
+  name:"Chimisaurus",
+  level:1,
+  moveset:[{
+    name:"ember",
+    pp:20,
+    damage:35,
+    type:"fire"
+  },
+  {
+    name:"accelerock",
+    pp:15,
+    damage:30,
+    type:"ground"
+
+  }],
+  type:["fire","ground"],
+  hp:120,
+  attack:18,
+  speed:8
+};
+let rival = {
+  name:"Booritoes",
+  level:1,
+  moveset:[{
+    name:"shadow ball",
+    pp:10,
+    damage:30,
+    type:"ghost"
+  },
+  {
+    name:"rock throw",
+    pp:20,
+    damage:15,
+    type:"rock"
+
+  }],
+  type:["ghost","rock"],
+  hp:85,
+  attack:9,
+  speed:16
+};
   
 // 🧪 Great work! Now you’re ready to choose your partner in Mission 03.
   
@@ -93,8 +143,19 @@ let rival = {};
 // player.bag.pokeballs.push(item);
 
 player.addToBag = function (item, pocket) {
-
+player.bag[pocket].push(item)
+console.log("You've added " + item.name + " to your " + pocket + "!")
+console.log(player.bag)
+return(player.bag)
 };
+
+function sum(x,y){
+  console.log(x+y)
+return(x+y)
+}
+let result=sum("2","3")
+console.log("this is the result ", result)
+
   
 // --------------------------------------------------------------------
 // Before you start your Pokémon journey, Professor Oak gives you your first Pokémon and a healing potion!
@@ -121,7 +182,8 @@ let potion = {
   
 // Add the starter Pokémon and potion to the bag:
 
-
+player.addToBag(potion,"medicine")
+player.addToBag(starter,"pokemon")
   
 // ---------------------------------------------------------------
 
